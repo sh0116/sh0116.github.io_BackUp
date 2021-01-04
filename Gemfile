@@ -7,7 +7,7 @@ gem 'jekyll-feed'
 gem 'jekyll-sitemap'
 gem 'jemoji'
 gem 'jekyll-readme-index'
-
+gem "html-proofer"
 # plugins
 group :jekyll_plugins do
   gem "jekyll-paginate"
