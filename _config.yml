@@ -25,8 +25,8 @@ author: KIM, SH                  # change to your full name
 avatar: /assets/img/sample/main.jpg   # support internet resources
 
 github:
-  username: sh0116           # change to your github username
-
+  username: sh0116
+  repository: sh0116/sh0116.github.io
 twitter:
   username: None # change to your twitter username
 
@@ -45,11 +45,9 @@ google_site_verification: google_meta_tag_verification # change to your verifica
 
 #--------------------------
 
-repository: sh0116/sh0116.github.io
-
 # Only if your site type is GitHub Project sites and doesn't have a custom domain,
 # change below value to '/projectname'.
-baseurl: ''
+baseurl: 'sh0116.github.io'
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
 timezone:  Asia/Seoul
