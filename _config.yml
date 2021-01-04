@@ -23,9 +23,9 @@ url: 'https://sh0116.github.io'
 author: KIM, SH                  # change to your full name
 
 avatar: /assets/img/sample/main.jpg   # support internet resources
-
-github:
-  username: sh0116
+github: [metadata]
+#github:
+#  username: sh0116
 #  repository: sh0116/sh0116.github.io
 twitter:
   username: None # change to your twitter username
