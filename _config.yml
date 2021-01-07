@@ -6,53 +6,54 @@
 
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-# --------------------------
-title: Chirpy                          # the main title
+#--------------------------
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+title: Fast01                          # the main title
+
+tagline: 🍟  # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, portfolio, sidebar,
   bootstrap Jekyll theme with responsive web design
   and focuses on text presentation.
 
-# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+# fill in the base hostname & protocol for your site, e.g., 'https://username.github.io'
+url: 'https://sh0116.github.io'
 
-author: your_full_name                  # change to your full name
+author: KIM, SH                  # change to your full name
 
-avatar: /assets/img/sample/avatar.jpg   # support internet resources
+avatar: /assets/img/sample/main.jpg   # support internet resources
 
 github:
-  username: github_username             # change to your github username
-
+  username: sh0116
+  #repository: sh0116/sh0116.github.io
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: None # change to your twitter username
 
 social:
-  name: your_full_name                  # it will shows as the copyright owner in Footer
-  email: example@doamin.com             # change to your email address
+  name: KIM, SH                 # it will shows as the copyright owner in Footer
+  email: example@naver.com         # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+    #- https://twitter.com/username      # change to your twitter homepage
+    - https://github.com/sh0116      # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
 google_site_verification: google_meta_tag_verification # change to your verification string
-# --------------------------
 
+#--------------------------
 
 # Only if your site type is GitHub Project sites and doesn't have a custom domain,
 # change below value to '/projectname'.
 baseurl: ''
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
+timezone:  Asia/Seoul
 
 google_analytics:
-  id: ''          # Fill with your Google Analytics ID
+  id: 'G-CDG540Y94R'          # Fill with your Google Analytics ID
   pv:
     # The Google Analytics pageviews switch.
     # DO NOT enable it unless you know how to deploy the Google Analytics superProxy.
@@ -67,13 +68,10 @@ disqus:
   shortname: ''    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 
-# Prefer color scheme setting.
+# Prefer color scheme setting, available values:
 #
-# Note: Keep empty will follow the system prefer color by default,
-# and there will be a toggle to switch the theme between dark and light
-# on the bottom left of the sidebar.
-#
-# Available options:
+#     dual   - Follow the system prefer color by default, and a toggle will display
+#              in the left bottom of Sidebar, which used for switch the theme between dark and light.
 #
 #     light  - Use the light color scheme
 #
@@ -81,13 +79,13 @@ disqus:
 #
 theme_mode:   # [light|dark]
 
-# The CDN endpoint for website assets. Fill it if you have one.
 assets_cdn: ''
-
 # boolean type, the global switch for ToC in posts.
 toc: true
 
 paginate: 10
+
+
 
 kramdown:
   syntax_highlighter: rouge
@@ -128,13 +126,6 @@ defaults:
       path: _drafts
     values:
       comments: false
-  -
-    scope:
-      path: index.html
-    values:
-      breadcrumb:
-        -
-          label: Posts
   -
     scope:
       path: tags
@@ -199,3 +190,7 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+
+
+
+
