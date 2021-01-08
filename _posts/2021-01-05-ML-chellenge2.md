@@ -1,9 +1,9 @@
 ---
-title: 머신러닝 1 정리
+title: 머신러닝 야학 - 머신러닝 1 정리
 author: fast01
 date: 2021-01-04 18:00:00 +0800
 categories: [challenge,머신러닝야학]
-tags: []
+tags: [challenge,]
 toc: false
 ---
 
