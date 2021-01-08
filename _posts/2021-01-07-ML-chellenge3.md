@@ -1,10 +1,10 @@
 ---
 title: 머신러닝 야학 - Tensorflow 101 정리-1
 author: fast01
-date: 2021-01-08 18:00:00 +0800
+date: 2021-01-07 18:00:00 +0800
 categories: [challenge,머신러닝야학]
 tags: [challenge,ML]
-toc: false
+toc: true
 ---
 
 <h2><span style="color:red">머신러닝 야학 2기 </span></h2>
