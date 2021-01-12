@@ -4,7 +4,7 @@ author: fast01
 date: 2021-01-08 18:00:00 +0800
 categories: [challenge,머신러닝야학]
 tags: [challenge,ML]
-toc: True
+toc: false
 ---
 
 <h2><span style="color:red">머신러닝 야학 2기 </span></h2>
@@ -31,41 +31,54 @@ https://ml.yah.ac/
 
 **Google Colaboratory**을 사용합니다.
 
-<h2><span style="color:red"> 레모네이드 판매 예측</span></h2>
+<h2><span style="color:red"> 보스턴 집값 예측</span></h2>
 ----------
-기본적인 지도학습 순서
+보스턴 집값을 예측하는 딥러닝 모델을 텐서플로우를 이용하여 만들어 보고, 
+모델을 구성하는 퍼셉트론에 대해 이해합니다.
 
--	과거의 데이터를 준비합니다.
--	모델의 구조를 만듭니다.
--	데이터로 모델을 학습(FIT)합니다.
--	모델을 이용합니다.
+<span style="color:green"> Tensorflow 101 정리-1과 비교  </span>
+----------
+
+바로 전 포스팅에서 설명한 레모네이드 판매량 예측과 보스턴 집값 예측을 비교하자면
+데이터에서 큰 차이가 있다. 
+레모네이드는 한 독립변수( 온도 ) 가 판매량을 결정했지만 
+보스턴 집값 예측은 여러 독립변수(범죄율, 방수, 재산세 세율, 학생/교사비율 등)이 판매량을 결정한다.
+즉 독립변수는 여러개지만 종속변수는 하나인 셈이다.
+
+-> 위 내용을 정리하면 온도*2가 판매량이라는 공식을 y= x*2라고 표현 할 수 있다.
+-> 다시 정리하면 **y(예측값 )= x1(한 독립변수) * w1(가중치) + x2(한 독립변수) * w2(가중치) ... +b**  인 셈이다
+-> b는 편향으로 위 강의에선 자세히 설명하지않았지만 알고리즘과 원하는 값이 얼마나 떨어져있는지 나타내는 값이다. 즉 편향이 클수록 알고리즘과 답이 멀어져있는 것 이다.
+
+위 설명을 모두 포함에서 퍼셉트론이라는 하나의 뉴런을 구성한다.
+사진
+
 
 <span style="color:green">과거의 데이터를 준비합니다. </span>
 ----------
 
-    데이터를 준비합니다.
-    파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv'
-    레모네이드 = pd.read_csv(파일경로)
-    레모네이드.head()
-    독립 = 레모네이드[['온도']]
-    종속 = 레모네이드[['판매량']]
-    print(독립.shape, 종속.shape)
-데이터를 준비하고 독립변수와 종속변수를 설정해줍니다.
+	파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv'
+	보스턴 = pd.read_csv(파일경로)
+	print(보스턴.columns)
+	보스턴.head()
+	#독립 종속변수 설정
+	독립 = 보스턴[['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis', 'rad', 'tax',
+				'ptratio', 'b', 'lstat']]
+	종속 = 보스턴[['medv']]
+	print(독립.shape, 종속.shape)
+데이터를 준비합니다
 
 
 <span style="color:green">모델의 구조를 만듭니다. </span>
 ----------
 
-    # 모델을 만듭니다.
-    X = tf.keras.layers.Input(shape=[1])
-    Y = tf.keras.layers.Dense(1)(X)
-    model = tf.keras.models.Model(X, Y)
-    model.compile(loss='mse')
+	X = tf.keras.layers.Input(shape=[13])
+	Y = tf.keras.layers.Dense(1)(X)
+	model = tf.keras.models.Model(X, Y)
+	model.compile(loss='mse')
+
 모델의 구조를 만듭니다.
-위 코드에서 중요한 부분은 "shape=[1]" , "Dense(1)" 이 부분입니다.
-shape=[1] 부분은 	-> 온도라는 컬럼 한개여서 1을 적어줍니다.
-Dense(1) 부분은   	-> 판매량이라는 컬럼 한대여서 1을 적어줍니다.
-각 부분의 의미는 독립변수 , 종속 변수의 양을 뜻합니다.
+총 13개의 독립변수로 1개의 출력값을 보냅니다.
+
 
 <span style="color:green">데이터로 모델을 학습(FIT)합니다. </span>
 ----------
@@ -75,16 +88,7 @@ Dense(1) 부분은   	-> 판매량이라는 컬럼 한대여서 1을 적어줍�
 위 코드에서 중요한 부분은 epochs입니다.
 epochs는 학습의 횟수입니다. 
 
-<span style="color:red">
-지금 이 시간은 이 정도로만 알고있으면 될꺼같습니다.  (머신러닝 입문 수업이기 때문에)
-epochs를 더 깊게 알고 싶다면 epoch에 대해 검색하여 알아보는것도 좋은 방법일꺼같습니다.
- </span>
 
-<span style="color:green">손실( loss )</span>
-각 학습이 끝날때마다 얼마나 정확히 모델을 생성하고 있는지 평가하는 지표
-공식사진
-
-즉 loss가 0에 가까워질수록 학습이 잘되는 것이다.
 
 
 
@@ -92,11 +96,13 @@ epochs를 더 깊게 알고 싶다면 epoch에 대해 검색하여 알아보는�
 <span style="color:green">모델을 이용합니다.</span>
 ----------
 
-    print(model.predict(독립))
-    print(model.predict([[15]]))
+	print(model.predict(독립[5:10]))
+	# 종속변수 확인
+	print(종속[5:10])
 모델을 사용하여 출력합니다.
-입력 -> 독립 -> 온도
-출력 -> 종속 -> 판매량   
+
+	print(model.get_weights())
+모델의 수식 확인
 
 <span style="color:green">전체 코드</span>
 ----------
@@ -107,32 +113,41 @@ epochs를 더 깊게 알고 싶다면 epoch에 대해 검색하여 알아보는�
     import pandas as pd
      
     ###########################
-    # 데이터를 준비합니다.
-    파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/lemonade.csv'
-    레모네이드 = pd.read_csv(파일경로)
-    레모네이드.head()
-    # 종속변수, 독립변수
-    독립 = 레모네이드[['온도']]
-    종속 = 레모네이드[['판매량']]
+    # 1.과거의 데이터를 준비합니다.
+    파일경로 = 'https://raw.githubusercontent.com/blackdew/tensorflow1/master/csv/boston.csv'
+    보스턴 = pd.read_csv(파일경로)
+    print(보스턴.columns)
+    보스턴.head()
+     
+    # 독립변수, 종속변수 분리 
+    독립 = 보스턴[['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis', 'rad', 'tax',
+                'ptratio', 'b', 'lstat']]
+    종속 = 보스턴[['medv']]
     print(독립.shape, 종속.shape)
      
     ###########################
-    # 모델을 만듭니다.
-    X = tf.keras.layers.Input(shape=[1])
+    # 2. 모델의 구조를 만듭니다
+    X = tf.keras.layers.Input(shape=[13])
     Y = tf.keras.layers.Dense(1)(X)
     model = tf.keras.models.Model(X, Y)
     model.compile(loss='mse')
      
     ###########################
-    # 모델을 학습시킵니다. 
+    # 3.데이터로 모델을 학습(FIT)합니다.
     model.fit(독립, 종속, epochs=1000, verbose=0)
     model.fit(독립, 종속, epochs=10)
      
     ###########################
-    # 모델을 이용합니다. 
-    print(model.predict(독립))
-    print(model.predict([[15]]))
+    # 4. 모델을 이용합니다
+    print(model.predict(독립[5:10]))
+    # 종속변수 확인
+    print(종속[5:10])
+     
+    ###########################
+    # 모델의 수식 확인
+    print(model.get_weights())
 
 ----------
 모든 내용은 아래 링크에서 학습한 내용이고 문제시 글 내리겠습니다.
 https://opentutorials.org/module/4966/28974
+
