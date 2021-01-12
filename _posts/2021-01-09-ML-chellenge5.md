@@ -154,6 +154,7 @@ epochs는 학습의 횟수입니다.
 	binary-classification vs multi-classification
 	- multi는 위에서 본 여러 범주안에서 하나를 고르는 모델
 	- binary는 어떤 데이터가 어떤 class를 표현하냐 아니냐, 즉 Yes or No문제 이다
+	
 <span style="color:green">전체 코드</span>
 ----------
 
