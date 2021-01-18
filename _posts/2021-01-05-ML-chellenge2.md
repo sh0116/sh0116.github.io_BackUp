@@ -4,7 +4,7 @@ author: fast01
 date: 2021-01-04 18:00:00 +0800
 categories: [challenge,머신러닝야학]
 tags: [challenge,]
-toc: false
+toc: true
 ---
 
 <h2><span style="color:red">머신러닝 야학 2기 </span></h2>

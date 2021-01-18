@@ -2,9 +2,9 @@
 title: 머신러닝 야학 2기
 author: fast01
 date: 2021-01-03 18:00:00 +0800
-categories: [challenge,]
+categories: [challenge,머신러닝야학]
 tags: []
-toc: false
+toc: true
 ---
 
 <h2><span style="color:red">머신러닝 야학 2기 </span></h2>
